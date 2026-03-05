@@ -17,7 +17,18 @@
 
 仓库内的 `AGENTS.md` + `skills/` 已定义好路由与执行规则，AI 会自动选择流程。
 
-## 第一步：配置阿里云与通义听悟（跨平台）
+## 第一步：开通通义听悟服务
+
+1. 登录通义听悟控制台：  
+   [https://nls-portal.console.aliyun.com/tingwu/overview?spm=a2c4g.11186623.0.0.2b5f2be1BsltKB](https://nls-portal.console.aliyun.com/tingwu/overview?spm=a2c4g.11186623.0.0.2b5f2be1BsltKB)
+2. 在概览页点击“立即开通”。
+3. 进入产品开通页并选择服务类型：  
+   [https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.2b5f2be1BsltKB&commodityCode=nls_tingwupaas_public_cn](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.2b5f2be1BsltKB&commodityCode=nls_tingwupaas_public_cn)
+4. 选择开通模式：
+   - 试用：新开通用户可免费试用 90 天。
+   - 商用：按接口请求时长计费，费用从阿里云账户余额扣除。
+
+## 第二步：配置阿里云与通义听悟（跨平台）
 
 你需要 3 个凭证：
 
