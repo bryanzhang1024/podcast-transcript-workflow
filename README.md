@@ -17,7 +17,7 @@
 
 仓库内的 `AGENTS.md` + `skills/` 已定义好路由与执行规则，AI 会自动选择流程。
 
-## 第一步：配置阿里云与通义听悟
+## 第一步：配置阿里云与通义听悟（跨平台）
 
 你需要 3 个凭证：
 
@@ -25,7 +25,7 @@
 - `ALIBABA_CLOUD_ACCESS_KEY_SECRET`
 - `TINGWU_APP_KEY`（通义听悟项目 AppKey）
 
-建议放在本机私有文件：
+### macOS / Linux
 
 ```bash
 mkdir -p "$HOME/.config/secrets"
@@ -36,19 +36,30 @@ export TINGWU_APP_KEY="your_app_key"
 EOF
 chmod 600 "$HOME/.config/secrets/tingwu.env"
 source "$HOME/.config/secrets/tingwu.env"
-```
 
-安装依赖：
-
-```bash
 python3 -m pip install aliyun-python-sdk-core
-```
-
-快速自检（显示帮助即可）：
-
-```bash
 python3 pipeline/scripts/tingwu_pipeline.py -h
 ```
+
+### Windows (PowerShell)
+
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\\.config\\secrets" | Out-Null
+@'
+$env:ALIBABA_CLOUD_ACCESS_KEY_ID="your_ak"
+$env:ALIBABA_CLOUD_ACCESS_KEY_SECRET="your_sk"
+$env:TINGWU_APP_KEY="your_app_key"
+'@ | Set-Content "$env:USERPROFILE\\.config\\secrets\\tingwu.env.ps1"
+
+. "$env:USERPROFILE\\.config\\secrets\\tingwu.env.ps1"
+
+py -3 -m pip install aliyun-python-sdk-core
+py -3 pipeline/scripts/tingwu_pipeline.py -h
+```
+
+说明：
+- macOS/Linux 推荐使用 `python3`
+- Windows 推荐使用 `py -3`（避免多 Python 版本冲突）
 
 ## 对 AI 的自然语言指令模板
 
@@ -80,9 +91,11 @@ python3 pipeline/scripts/tingwu_pipeline.py -h
 - 最终稿：`runs/<run_id>/99-final/transcript-final.md`
 - ASR 结果：`runs/<run_id>/02-asr/*Transcription*.json`
 
-## 手动命令（可选）
+## 手动命令（可选，跨平台）
 
-如果你想不用自然语言、直接手动跑：
+如果你想不用自然语言、直接手动跑。
+
+### macOS / Linux
 
 ```bash
 RUN_ID="20260305-69a64629-e45"
@@ -97,7 +110,24 @@ python3 pipeline/scripts/tingwu_pipeline.py wait "<TaskId>" \
   --output-dir "./runs/$RUN_ID/02-asr"
 ```
 
+### Windows (PowerShell)
+
+```powershell
+$RUN_ID = "20260305-69a64629-e45"
+
+py -3 pipeline/scripts/tingwu_pipeline.py tingwu "<input_url>" `
+  --no-wait `
+  --output-dir "./runs/$RUN_ID/02-asr"
+
+py -3 pipeline/scripts/tingwu_pipeline.py wait "<TaskId>" `
+  --poll-interval 180 `
+  --download-results `
+  --output-dir "./runs/$RUN_ID/02-asr"
+```
+
 ## 安全说明
 
 - `.gitignore` 默认忽略 `runs/`，避免把本地转写产物和潜在敏感内容提交到仓库。
-- 不要把 `$HOME/.config/secrets/tingwu.env` 提交到 git。
+- 不要把凭证文件提交到 git：
+  - macOS/Linux: `$HOME/.config/secrets/tingwu.env`
+  - Windows: `%USERPROFILE%\\.config\\secrets\\tingwu.env.ps1`
