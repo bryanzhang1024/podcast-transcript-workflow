@@ -29,7 +29,7 @@ export TINGWU_APP_KEY="your_tingwu_app_key"
 
 ## Usage
 
-Run commands from repo root: `/Users/clover/Develop/播客转文字稿工作流`.
+Run commands from repo root.
 
 Resolve audio URL:
 

@@ -23,12 +23,12 @@ If no public audio URL is available, manually download audio and upload through 
 
 ## Step 0: Prepare Environment
 
-Run commands from repo root: `/Users/clover/Develop/播客转文字稿工作流`.
+Run commands from repo root.
 
 Load secrets:
 
 ```bash
-source /Users/clover/.config/secrets/tingwu.env
+source "$HOME/.config/secrets/tingwu.env"
 ```
 
 Ensure dependency:

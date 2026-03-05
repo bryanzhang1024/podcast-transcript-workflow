@@ -2,9 +2,9 @@
 
 ### Available skills
 
-- podcast-transcript-orchestrator: Workflow router for choosing split mode (ASR-only or polish-only) or full chained mode across multiple podcast platforms and fallback paths. Use when the request is about how to run the pipeline, selecting execution mode, or handling non-Xiaoyuzhou sources. (file: /Users/clover/Develop/播客转文字稿工作流/skills/podcast-transcript-orchestrator/SKILL.md)
-- podcast-tingwu-e2e: End-to-end podcast workflow from episode URL/audio URL to Tingwu ASR result and final readable transcript markdown. Use when the request involves running the full pipeline, polling Tingwu tasks, downloading transcription files, or producing final transcript deliverables. (file: /Users/clover/Develop/播客转文字稿工作流/skills/podcast-tingwu-e2e/SKILL.md)
-- podcast-transcript-editor: Professional transcript polishing workflow for converting rough ASR text to readable markdown while preserving full content. Use when the request focuses on editing, punctuation, speaker labeling, paragraph reconstruction, and style polishing. (file: /Users/clover/Develop/播客转文字稿工作流/skills/podcast-transcript-editor/SKILL.md)
+- podcast-transcript-orchestrator: Workflow router for choosing split mode (ASR-only or polish-only) or full chained mode across multiple podcast platforms and fallback paths. Use when the request is about how to run the pipeline, selecting execution mode, or handling non-Xiaoyuzhou sources. (file: skills/podcast-transcript-orchestrator/SKILL.md)
+- podcast-tingwu-e2e: End-to-end podcast workflow from episode URL/audio URL to Tingwu ASR result and final readable transcript markdown. Use when the request involves running the full pipeline, polling Tingwu tasks, downloading transcription files, or producing final transcript deliverables. (file: skills/podcast-tingwu-e2e/SKILL.md)
+- podcast-transcript-editor: Professional transcript polishing workflow for converting rough ASR text to readable markdown while preserving full content. Use when the request focuses on editing, punctuation, speaker labeling, paragraph reconstruction, and style polishing. (file: skills/podcast-transcript-editor/SKILL.md)
 
 ### How to use skills
 
