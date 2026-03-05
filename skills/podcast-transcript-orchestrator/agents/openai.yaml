@@ -1,0 +1,4 @@
+interface:
+  display_name: "Podcast Transcript Orchestrator"
+  short_description: "Route split or full transcript runs across podcast sources."
+  default_prompt: "Use $podcast-transcript-orchestrator to choose split or full pipeline and run the right skills for this podcast URL."

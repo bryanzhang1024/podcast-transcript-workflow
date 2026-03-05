@@ -1,0 +1,4 @@
+interface:
+  display_name: "Podcast Transcript Editor"
+  short_description: "Polish raw ASR transcripts into readable full-fidelity markdown."
+  default_prompt: "Use $podcast-transcript-editor to polish this raw transcript without losing any information."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Podcast Tingwu E2E"
+  short_description: "Run podcast link-to-transcript workflow end to end."
+  default_prompt: "Use $podcast-tingwu-e2e to process this episode URL into an editable transcript."
